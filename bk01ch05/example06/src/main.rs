@@ -1,12 +1,8 @@
-fn calculate_tip(pre_tip: f32, tip_percent: f32) -> f32 {
-    pre_tip * tip_percent
+fn add_numbers(x: i16, y: i16) -> i16 {
+    x + y
 }
 
-
 fn main() {
-    let pre_tip_total = 100.00;
-    let tip_percentage = 0.18;
-    let tip_cost = calculate_tip(pre_tip_total, tip_percentage);
-    let total_bill = pre_tip_total + tip_cost;
-    println!("Your total bill is ${total_bill:.2}");
+    let result = add_numbers(17, 25);
+    println!("The sum is {result}."); // Output: The sum is 42.
 }
