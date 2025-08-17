@@ -25,7 +25,8 @@ fn main() {
 
         // VARIABLE SHADOWING:
         // Replace `choice` with a cleaned/normalized version using the same name.
-        let choice = choice.trim().to_lowercase();
+        let choice = choice.trim();
+        let choice = choice.to_lowercase();
 
         // Validate and branch
         match choice.as_str() {
