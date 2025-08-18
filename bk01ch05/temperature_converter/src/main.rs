@@ -31,7 +31,7 @@ fn main() {
                     print_invalid_temperature(temperature, "C");
                 }
             }
-            _ => println!("Invalid choice! Please try again.")
+            _ => println!("Invalid choice! Please try again."),
         }
     }
 }
@@ -56,8 +56,8 @@ fn get_menu_choice() -> i32 {
 fn get_temperature() -> f64 {
     let mut choice = String::new();
     let _ = io::stdin().read_line(&mut choice);
-    let choice = choice.trim();
-    choice.parse().unwrap_or(0.0)
+    let choice = choice.trim().parse();
+    choice.unwrap_or(0.0)
 }
 
 fn is_valid_fahrenheit(fahrenheit: f64) -> bool {
@@ -69,16 +69,24 @@ fn is_valid_celsius(celsius: f64) -> bool {
 }
 
 fn fahrenheit_to_celsius(fahrenheit: f64) -> f64 {
-    (fahrenheit - 32.0) * 5.0 / 9.0 
+    (fahrenheit - 32.0) * 5.0 / 9.0
 }
 
 fn celsius_to_fahrenheit(celsius: f64) -> f64 {
     (celsius * 9.0 / 5.0) + 32.0
 }
 
-fn print_converted_temperature(original_temp: f64, original_unit: &str, converted_temp: f64, converted_unit: &str) {
+fn print_converted_temperature(
+    original_temp: f64,
+    original_unit: &str,
+    converted_temp: f64,
+    converted_unit: &str,
+) {
     println!();
-    println!("{:.2}°{} = {:.2}°{}", original_temp, original_unit, converted_temp, converted_unit);
+    println!(
+        "{:.2}°{} = {:.2}°{}",
+        original_temp, original_unit, converted_temp, converted_unit
+    );
 }
 
 fn print_invalid_temperature(temp: f64, unit: &str) {
