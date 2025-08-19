@@ -57,7 +57,7 @@ fn get_temperature() -> f64 {
     let mut choice = String::new();
     let _ = io::stdin().read_line(&mut choice);
     let choice = choice.trim().parse();
-    choice.unwrap_or(0.0)
+    choice.unwrap_or(-500.0)
 }
 
 fn is_valid_fahrenheit(fahrenheit: f64) -> bool {
