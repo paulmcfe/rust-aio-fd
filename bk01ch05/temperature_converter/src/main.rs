@@ -1,36 +1,55 @@
 use std::io;
 
 fn main() {
+    // Loop until the user quits
     loop {
+        // Show the main menu and get the user's choice
         show_menu();
         let choice = get_menu_choice();
         println!();
 
+        // Match the user's choice
         match choice {
+            // 0 means the user pressed a letter, so break out of the loop to quit
             0 => {
                 println!("Thanks for using Temperature Converter!");
                 break;
             }
+            // Convert °F to °C
             1 => {
+                // Get the Fahrenheit temperature to convert
                 println!("Type the °F temperature you want to convert:");
-                let temperature = get_temperature();
-                if is_valid_fahrenheit(temperature) {
-                    let converted_temperature = fahrenheit_to_celsius(temperature);
-                    print_converted_temperature(temperature, "F", converted_temperature, "C");
+                let temp = get_temp();
+
+                // Is it valid?
+                if is_valid_fahrenheit(temp) {
+                    // If so, convert it and display the conversion
+                    let converted_temp = fahrenheit_to_celsius(temp);
+                    print_converted_temp(temp, "F", converted_temp, "C");
                 } else {
-                    print_invalid_temperature(temperature, "F");
+                    // If not, prompt the user to try again
+                    println!();
+                    println!("Whoops, that's not a valid temperature! Please try again.");
                 }
             }
+            // Convert °C to °F
             2 => {
+                // Get the Celsius temperature to convert
                 println!("Type the °C temperature you want to convert:");
-                let temperature = get_temperature();
-                if is_valid_celsius(temperature) {
-                    let converted_temperature = celsius_to_fahrenheit(temperature);
-                    print_converted_temperature(temperature, "C", converted_temperature, "F");
+                let temp = get_temp();
+
+                // Is it valid?
+                if is_valid_celsius(temp) {
+                    // If so, convert it and display the conversion
+                    let converted_temp = celsius_to_fahrenheit(temp);
+                    print_converted_temp(temp, "C", converted_temp, "F");
                 } else {
-                    print_invalid_temperature(temperature, "C");
+                    // If not, prompt the user to try again
+                    println!();
+                    println!("Whoops, that's not a valid temperature! Please try again.");
                 }
             }
+            // Handle integers not equal to 1 or 2
             _ => println!("Invalid choice! Please try again."),
         }
     }
@@ -53,10 +72,12 @@ fn get_menu_choice() -> i32 {
     choice.unwrap_or(0)
 }
 
-fn get_temperature() -> f64 {
+fn get_temp() -> f64 {
     let mut choice = String::new();
     let _ = io::stdin().read_line(&mut choice);
     let choice = choice.trim().parse();
+    // If the user enters a non-integer, return a value (-500.0)
+    // that's invalid in both Fahrenheit and Celsius
     choice.unwrap_or(-500.0)
 }
 
@@ -76,7 +97,7 @@ fn celsius_to_fahrenheit(celsius: f64) -> f64 {
     (celsius * 9.0 / 5.0) + 32.0
 }
 
-fn print_converted_temperature(
+fn print_converted_temp(
     original_temp: f64,
     original_unit: &str,
     converted_temp: f64,
@@ -87,9 +108,4 @@ fn print_converted_temperature(
         "{:.2}°{} = {:.2}°{}",
         original_temp, original_unit, converted_temp, converted_unit
     );
-}
-
-fn print_invalid_temperature(temp: f64, unit: &str) {
-    println!();
-    println!("{:.2}°{} is below absolute zero!", temp, unit);
 }
