@@ -1,7 +1,7 @@
 fn main() {
     let msg = "Important message".to_string();
-    let length = get_length(msg);
-    println!("{msg} is {length} characters long.");
+    let str_length = get_length(msg);
+    println!("'{msg}' is {str_length} characters long.");
 }
 
 fn get_length(s: String) -> usize {
