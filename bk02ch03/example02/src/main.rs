@@ -1,20 +1,24 @@
-fn get_coordinates() -> (i32, i32) {
-    // Coordinate-determining logic goes here
-    (75, 140)
-}
-
-fn get_rgb_color() -> (u8, u8, u8) {
-    // Color-determining logic goes here
-    (255, 128, 0) // Orange!
+#![allow(unused_variables)]
+enum PlayerState {
+    Active(String), // Store the player's name
+    Idle(u32),      // Stores the idle time, in seconds
+    Dead(bool),     // true = can respawn; false = permanently dead
 }
 
 fn main() {
-    let point = get_coordinates();
-    let color = get_rgb_color();
+    let state1 = PlayerState::Active(String::from("Alice"));
+    let state2 = PlayerState::Idle(120);
+    let state3 = PlayerState::Dead(true);
 
-    println!("The point coordinates are ({}, {}).", point.0, point.1);
-    println!(
-        "The RGB color components are ({} {} {}).",
-        color.0, color.1, color.2
-    );
+    match state1 {
+        PlayerState::Active(name) => println!("{name} is playing!"),
+        PlayerState::Idle(secs) => println!("Player idle for {secs} seconds."),
+        PlayerState::Dead(can_respawn) => {
+            if can_respawn {
+                println!("Player is dead but can respawn.");
+            } else {
+                println!("Player is permanently dead.");
+            }
+        }
+    }
 }

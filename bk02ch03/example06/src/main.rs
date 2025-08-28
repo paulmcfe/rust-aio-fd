@@ -1,11 +1,17 @@
-fn sum3(nums: [i32; 4]) -> i32 {
-    nums[0] + nums[1] + nums[2] + nums[3]
+fn cost_per_slice(total_cost: f64, slices: u32) -> Option<f64> {
+    if slices == 0 {
+        None
+    } else {
+        Some(total_cost / slices as f64)
+    }
 }
 
 fn main() {
-    let array1: [i32; 4] = [1, 2, 3, 4];
-    let array2: [i32; 5] = [1, 2, 3, 4, 5];
-
-    println!("{}", sum3(array1)); // works
-    println!("{}", sum3(array2)); // error: expected [i32; 3], found [i32; 4]
+    let total_cost = 19.99;
+    let slices = 6;
+    let result = cost_per_slice(total_cost, slices);
+    match result {
+        Some(cost) => println!("Each slice costs ${:.2}", cost),
+        None => println!("No pizza for you!"),
+    }
 }

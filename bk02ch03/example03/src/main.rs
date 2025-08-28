@@ -1,12 +1,15 @@
 fn main() {
-    // Here comes the tuple
-    let person = ("Alice", 30, true);
+    let question = String::from("Why is there something rather than nothing?");
 
-    // Destructure it into separate variables
-    let (name, age, is_student) = person;
-    println!("Name: {name}, Age: {age}, Is student: {is_student}");
+    let result1 = question.find("something");
+    match result1 {
+        Some(num) => println!("Substring found at position {num}!"),
+        None => println!("Substring not found!"),
+    }
 
-    // While destructuring, you can also ignore values you don't need
-    let (name, _, _) = person;
-    println!("Hello {name}!");
+    let result2 = question.find("nothinf");
+    match result2 {
+        Some(num) => println!("Substring found at position {num}!"),
+        None => println!("Substring not found!"),
+    }
 }
