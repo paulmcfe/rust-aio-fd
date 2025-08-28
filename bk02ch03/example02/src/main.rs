@@ -14,7 +14,7 @@ fn main() {
 
     println!("The point coordinates are ({}, {}).", point.0, point.1);
     println!(
-        "The RGB color components are({} {} {}).",
+        "The RGB color components are ({} {} {}).",
         color.0, color.1, color.2
     );
 }
