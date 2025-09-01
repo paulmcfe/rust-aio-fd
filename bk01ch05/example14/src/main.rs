@@ -1,13 +1,10 @@
-const MAX_COUNT: u16 = 10;
 fn main() {
-    add_one(1);
-}
-
-fn add_one(counter: u16) {
-    if counter <= MAX_COUNT {
-        println!("counter is now {counter}.");
-        add_one(counter + 1);
-    } else {
-        println!("All done!");
+    'outer: for i in 1..=3 {
+        for j in 1..=3 {
+            if i * j == 4 {
+                println!("Found 4 at i={i}, j={j}.");
+                break 'outer; // break the outer loop, not just the inner one
+            }
+        }
     }
 }

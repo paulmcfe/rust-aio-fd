@@ -1,11 +1,9 @@
 fn main() {
-    let mut num = 2;
-    loop {
-        let num_squared = num * num;
-        println!("{num} squared = {num_squared}");
-        num += 1;
-        if num > 10 {
-            break;
-        }
-    }
+    let area = {
+        let width = 5;
+        let height = 4;
+        width * height
+    };
+    
+    println!("The area is: {area}");
 }

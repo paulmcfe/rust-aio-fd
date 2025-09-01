@@ -1,19 +1,16 @@
-fn function_one() {
-    let name = "Alice";
-    println!("In function_one: {name}");
-}
-
-fn function_two() {
-    let name = "Bob";
-    println!("In function_two: {name}");
-}
-
 fn main() {
-    let name = "Charlie";
-    println!("In main: {name}");
+    // Loop from 1 to 5 (inclusive)
+    for number in 1..=5 {
+        println!("Number: {number}");
+    }
     
-    function_one();
-    function_two();
+    // Loop from 0 to 4 (exclusive of 5)
+    for number in 0..5 {
+        println!("Index: {number}");
+    }
     
-    println!("Still in main: {name}");
+    // Count backwards
+    for number in (1..=5).rev() {
+        println!("Countdown: {number}");
+    }
 }

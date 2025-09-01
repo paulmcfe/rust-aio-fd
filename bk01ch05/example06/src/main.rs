@@ -1,8 +1,13 @@
-fn add_numbers(x: i16, y: i16) -> i16 {
-    x + y
-}
-
 fn main() {
-    let result = add_numbers(17, 25);
-    println!("The sum is {result}."); // Output: The sum is 42.
+    let mut num = 2;
+    let mut num_squared = num * num;
+    println!("{num} squared = {num_squared}");
+
+    num += 1;
+    num_squared = num * num;
+    println!("{num} squared = {num_squared}");
+
+    num += 1;
+    num_squared = num * num;
+    println!("{num} squared = {num_squared}");
 }

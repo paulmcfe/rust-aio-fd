@@ -1,7 +1,14 @@
-fn introduce_people(person1: &str, person2: &str) {
-    println!("{person1}, meet {person2}. {person2}, meet {person1}.");
-}
-
 fn main() {
-    introduce_people("Alice", "Bob");
+    let greeting;
+    let current_hour = 10;
+
+    if current_hour < 12 {
+        greeting = "Good morning!";
+    } else if current_hour < 18 {
+        greeting = "Good afternoon!";
+    } else {
+        greeting = "Good evening!";
+    }
+
+    println!("{greeting}");
 }

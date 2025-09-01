@@ -1,14 +1,13 @@
 fn main() {
-    let greeting;
-    let current_hour = 10;
+    let x = 10;
+    let y = 15;
+    let a = "alpha";
+    let b = "beta";
 
-    if current_hour < 12 {
-        greeting = "Good morning!";
-    } else if current_hour < 18 {
-        greeting = "Good afternoon!";
-    } else {
-        greeting = "Good evening!";
-    }
-
-    println!("{greeting}");
+    println!("{}", x == y); // false
+    println!("{}", x != y); // true
+    println!("{}", x <= y); // true
+    println!("{}", a == b); // false
+    println!("{}", a < b); // true
+    println!("{}", a >= b); // false
 }
