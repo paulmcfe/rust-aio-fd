@@ -1,17 +1,14 @@
-use ::std::num::ParseIntError;
-
-fn parse_age(text: &str) -> Result<u8, ParseIntError> {
-    let n = text.trim().parse::<u8>()?;
-    Ok(n)
-}
+use std::io;
 
 fn main() {
-    match parse_age("42") {
-        Ok(age) => println!("Age is {age}."),
-        Err(e) => println!("Couldn't parse age: {e}."),
-    }
-    match parse_age("forty-two") {
-        Ok(age) => println!("Age is {age}."),
-        Err(e) => println!("Couldn't parse age: {e}."),
+    loop {
+        println!("Enter a red component value (0 - 255):");
+        let mut choice = String::new();
+        let _ = io::stdin().read_line(&mut choice);
+        let choice: Result<u8, _> = choice.trim().parse();
+        if let Ok(color) = choice {
+            println!("Your red component value is {color}.");
+            break;
+        }
     }
 }

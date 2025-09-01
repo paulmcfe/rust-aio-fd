@@ -7,7 +7,7 @@ fn main() {
     words.insert("grammo", "A grammatical error.");
     words.insert("wasband", "A woman's ex.");
 
-    for key in words.keys() {
-        println!("{key} means '{}'", words[key]);
+    for (key, value) in words {
+        println!("{key} means '{value}'");
     }
 }

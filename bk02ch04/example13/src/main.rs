@@ -1,7 +1,7 @@
 fn main() {
     let mut test_scores = vec![85, 77, 62, 91, 48, 80, 71, 66, 75, 53];
 
-    // Calculate the average text score
+    // Calculate the average test score
     let mut sum_of_scores = 0;
     for score in &test_scores {
         sum_of_scores += score;
