@@ -1,12 +1,13 @@
 use std::collections::HashMap;
 
 const STOPWORDS: &[&str] = &[
-    "the", "a", "an", "and", "or", "but", "of", "to", "in", "on", "for", "is", "it", "this",
-    "that", "as", "at", "by", "be", "with", "are", "was", "were", "from", "has", "have", "had",
-    "not", "no", "so", "if", "then",
+    "the", "a", "an", "and", "or", "but", "of", "to", 
+    "in", "on", "for", "is", "it", "this", "that", "as",
+    "at", "by", "be", "with", "are", "was", "were", "from", 
+    "has", "have", "had", "not", "no", "so", "if", "then",
 ];
 
-fn tokenize_normalize(text: &str) -> Vec<String> {
+fn tokenize(text: &str) -> Vec<String> {
     text.split(|c: char| !c.is_alphanumeric() && c != '\'')
         .filter(|w| !w.is_empty())
         .map(|w| w.to_lowercase())
@@ -103,7 +104,7 @@ As Celia bent over the paper, Dorothea put her cheek against her sister’s arm 
     println!("Word Wrangler");
     println!("=============");
 
-    let words = tokenize_normalize(text);
+    let words = tokenize(text);
 
     let top = top_words(&words, 10);
     println!("\nMost frequent words:");
