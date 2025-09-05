@@ -1,22 +1,18 @@
 fn main() {
-    let numbers: Vec<i32> = vec![4, 6, 3, 2, 1, 5];
+    // A temporary vector to hold the old wholesale prices
+    let old_prices = vec![15.75, 22.2, 28.15, 30.6, 42.85];
 
-    let how_many_nums = numbers.iter().count();
-    let last_result = numbers.iter().last();
-    let largest_result = numbers.iter().max();
-    let smallest_result = numbers.iter().min();
-    let product_of_nums: i32 = numbers.iter().product();
-    let total_of_nums: i32 = numbers.iter().sum();
-    println!("Elements: {}", how_many_nums);
-    if let Some(last_num) = last_result {
-        println!("Last element: {}", last_num);
+    // Set up a vector for the new prices
+    let mut new_prices = Vec::new();
+
+    // Iterate by taking ownership with into_iter()
+    for price in old_prices.into_iter() {
+        new_prices.push(price * 1.05);
     }
-    if let Some(largest_num) = largest_result {
-        println!("Largest element: {}", largest_num);
-    }
-    if let Some(smallest_num) = smallest_result {
-        println!("Smallest element: {}", smallest_num);
-    }
-    println!("Product of elements: {}", product_of_nums);
-    println!("Total of elements: {}", total_of_nums);
+
+    // Print the new prices
+    println!("{:.2?}", new_prices);
+
+    // This won't work because old_prices is now invalid
+    //println!("{:.2?}", old_prices);
 }

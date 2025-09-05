@@ -118,6 +118,7 @@ fn slugify(input: &str) -> String {
             // discarded at this point. Bye!
         }
     }
+
     // Remove any trailing hyphens that might be hanging around
     while slug.ends_with('-') {
         slug.pop();

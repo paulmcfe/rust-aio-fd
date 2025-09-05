@@ -1,19 +1,9 @@
 fn main() {
-    let fruits = vec![
-        "apple",
-        "banana",
-        "cherry",
-        "peach",
-        "grape",
-        "blueberry",
-        "mandarin",
-        "blackberry",
-        "strawberry",
-        "pear",
-    ];
+    let numbers: Vec<i32> = vec![4, 6, 3, 2, 1, 5];
 
-    fruits
+    let evens: Vec<&i32> = numbers
         .iter()
-        .enumerate()
-        .for_each(|(i, fruit)| println!("{}: {}", i + 1, fruit));
+        .filter(|&n| *n % 2 == 0)
+        .collect();
+    println!("{:?}", evens);
 }

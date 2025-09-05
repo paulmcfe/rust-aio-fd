@@ -1,18 +1,12 @@
 fn main() {
-    // A temporary vector to hold the old wholesale prices
-    let old_prices = vec![15.75, 22.2, 28.15, 30.6, 42.85];
+    // Here's the collection
+    let primes = vec![2, 3, 5, 7, 11, 13];
 
-    // Set up a vector for the new prices
-    let mut new_prices = Vec::new();
-
-    // Iterate by taking ownership with into_iter()
-    for price in old_prices.into_iter() {
-        new_prices.push(price * 1.05);
+    // Iterate with an immutable borrow via iter()
+    for prime in primes.iter() {
+        print!("{}, ", prime); // Each prime is &i32
     }
 
-    // Print the new prices
-    println!("{:.2?}", new_prices);
-
-    // This won't work because old_prices is now invalid
-    //println!("{:.2?}", old_prices);
+    // The primes vector is still valid here
+    println!("\n{:?}", primes);
 }

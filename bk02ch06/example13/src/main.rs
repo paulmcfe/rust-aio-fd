@@ -1,16 +1,9 @@
 fn main() {
-    // A temporary vector to hold the old wholesale prices
-    let old_prices = vec![15.75, 22.2, 28.15, 30.6, 42.85];
+    let rates = vec![0.45, 0.73, 0.33, 1.15, 0.9, 2.76, 3.25, 1.55];
 
-    // Set up a vector for the new prices
-    let new_prices: Vec<f64> = old_prices
-        .into_iter()
-        .map(|price| price * 1.05)
-        .collect();
-
-    // Print the new prices
-    println!("{:.2?}", new_prices);
-
-    // This won't work because old_prices is now invalid
-    //println!("{:.2?}", old_prices);
+    let result = rates.iter().find(|&n| *n > 1.0);
+    match result {
+        Some(first_over_one) => println!("The first rate over 1.0 is {first_over_one}"),
+        None => println!("No rate over 1.0 found!"),
+    }
 }
