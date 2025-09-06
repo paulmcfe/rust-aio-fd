@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "escape_the_dungeon"
+name = "example05"
 version = "0.1.0"

@@ -1,5 +1,5 @@
 [package]
-name = "escape_the_dungeon"
+name = "escape-the-dungeon"
 version = "0.1.0"
 edition = "2024"
 
