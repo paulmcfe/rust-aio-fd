@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "temperature_converter"
+name = "temperature-converter"
 version = "0.1.0"
