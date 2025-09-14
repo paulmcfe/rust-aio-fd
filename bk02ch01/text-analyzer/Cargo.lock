@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "text_analyzer"
+name = "text-analyzer"
 version = "0.1.0"
