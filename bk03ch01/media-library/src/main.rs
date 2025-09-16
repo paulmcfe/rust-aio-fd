@@ -7,7 +7,7 @@ use std::fmt;
 trait Rateable {
     // Rate the media item
     // This method makes changes to the item's `ratings` vector,
-    // so the `self` reference has to be mutable`
+    // so the `self` reference has to be mutable
     fn rate(&mut self, score: u8) -> Result<(), String>;
 
     // Get the item's rating
@@ -69,7 +69,10 @@ struct Song {
 
 // Implement the constructor for a Movie item
 impl Movie {
-    fn new(title: String, director: String, year: u32, duration_minutes: u32) -> Self {
+    fn new(title: String, 
+           director: String, 
+           year: u32, 
+           duration_minutes: u32) -> Self {
         Movie {
             title,
             director,
@@ -195,7 +198,8 @@ impl Rateable for Song {
 impl Playable for Movie {
     // Return a String
     fn play(&self) -> String {
-        format!("Now playing: \"{},\" directed by {} ({}).", self.title, self.director, self.year)
+        format!("Now playing: \"{},\" directed by {} ({}).", 
+            self.title, self.director, self.year)
     }
     // Return the movie's duration, in seconds (this method is not used in this project)
     fn get_duration(&self) -> u32 {
@@ -209,7 +213,8 @@ impl Playable for Song {
 
     // Return a String
     fn play(&self) -> String {
-        format!("Now playing: \"{},\" by {} from the album \"{},\".", self.title, self.artist, self.album)
+        format!("Now playing: \"{},\" by {} from the album \"{},\".", 
+            self.title, self.artist, self.album)
     }
 
     // Return the song's duration (this method is not used in this project)
@@ -287,7 +292,8 @@ impl Searchable for Song {
 // Implement the Display trait for Movie
 impl fmt::Display for Movie {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "\"{}\" ({}) directed by {}", self.title, self.year, self.director)
+        write!(f, "\"{}\" ({}) directed by {}", 
+            self.title, self.year, self.director)
     }
 }
 
