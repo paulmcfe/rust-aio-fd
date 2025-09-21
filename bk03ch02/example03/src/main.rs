@@ -8,7 +8,7 @@ fn main() {
     println!("{:?}", pair);
 
     let a = "Hello".to_string();
-    let b = " world!".to_string();
+    let b = "world!".to_string();
     let pair = make_tuple(a, b);
     println!("{:?}", pair);
 }
