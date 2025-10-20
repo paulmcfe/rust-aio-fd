@@ -12,5 +12,5 @@ fn test_exact_minutes() {
 }
 
 fn main() {
-
+    println!("{}", estimate_reading_time(1000));
 }

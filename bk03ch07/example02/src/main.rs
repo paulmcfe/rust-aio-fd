@@ -25,10 +25,11 @@ fn test_very_short_text() {
 
 #[test]
 fn test_zero_words() {
-    // Hmm, what should happen with zero words?
+    // Zero words should take no time to read!
     assert_eq!(estimate_reading_time(0), 0);
 }
-fn main() {
 
+fn main() {
+    println!("{}", estimate_reading_time(1000));
 }
 
