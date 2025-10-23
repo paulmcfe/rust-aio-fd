@@ -14,6 +14,13 @@
 /// # Returns
 ///
 /// The monthly payment amount, rounded to 2 decimal places
+/// 
+/// # Example
+/// 
+/// ```
+/// let payment = example12::calculate_payment(200000.0, 0.045, 30);
+/// assert_eq!(payment, 1013.37);
+/// ```
 pub fn calculate_payment(principal: f64, rate: f64, years: u32) -> f64 {
     let months = years * 12;
     let monthly_rate = rate / 12.0;
