@@ -33,13 +33,13 @@ fn main() {
                     process::exit(2);
                 });
             }
-            // Check for unknown option
+            // Check for an unknown option
             s if s.starts_with('-') => {
                 eprintln!("example02: unknown option: {s}");
                 print_usage();
                 process::exit(2);
             }
-            // Push to word(s) to the vector
+            // Push the word(s) to the vector
             word => words.push(word.to_string()),
         }
     }
