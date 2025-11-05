@@ -80,7 +80,7 @@ fn main() -> io::Result<()> {
     // Attempt the replacement
     match process_file(filepath, &args.from, &args.to, args.preview) {
         Ok(count) => {
-            if count > 0 {
+            if count > 0 && !args.preview {
                 println!("\nSummary: {} replacements in {:?}", count, filepath);
             }
         }
