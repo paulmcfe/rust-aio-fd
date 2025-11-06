@@ -1,0 +1,11 @@
+# Rules for the file organizer
+[rules]
+jpg = "images"
+png = "images"
+gif = "images"
+csv = "data"
+json = "data"
+pdf = "documents"
+docx = "documents"
+zip = "archives"
+mp3 = "music"
