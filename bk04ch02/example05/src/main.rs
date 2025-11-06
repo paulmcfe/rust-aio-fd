@@ -16,7 +16,7 @@ fn count_words_in_file(filename: &str) -> std::io::Result<usize> {
 }
 
 fn main() {
-    match count_words_in_file("src/book.md") {
+    match count_words_in_file("book.md") {
         Ok(count) => println!("Your book has {} words. Keep writing!", count),
         Err(e) => println!("Couldn't count words: {}", e),
     }

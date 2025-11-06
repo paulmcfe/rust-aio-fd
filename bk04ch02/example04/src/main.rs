@@ -2,7 +2,7 @@ use std::fs;
 
 fn read_shopping_list() -> std::io::Result<()> {
     // Read entire file into a String
-    let contents = fs::read_to_string("src/shopping-list.txt")?;
+    let contents = fs::read_to_string("shopping-list.txt")?;
     
     // Print the contents line by line
     println!("Shopping list:");

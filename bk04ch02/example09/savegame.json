@@ -1,0 +1,9 @@
+{
+  "player_name": "Hero",
+  "level": 42,
+  "score": 1337,
+  "items": [
+    "Sword of Debugging",
+    "Shield of Error Handling"
+  ]
+}

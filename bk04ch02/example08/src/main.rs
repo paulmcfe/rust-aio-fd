@@ -32,5 +32,5 @@ fn analyze_grades(filename: &str) -> Result<(), Box<dyn Error>> {
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    analyze_grades("src/grades.csv")
+    analyze_grades("grades.csv")
 }

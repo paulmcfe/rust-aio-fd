@@ -35,7 +35,7 @@ fn replace_in_file(src: &Path, target: &str, replacement: &str) -> io::Result<()
 
 fn main() -> io::Result<()> {
     // Get an &Path to the source file
-    let src = Path::new("src/sexist_idioms.txt");
+    let src = Path::new("sexist_idioms.txt");
 
     // Try the replacement, propagate the error if it fails
     replace_in_file(src, "man", "person")?;

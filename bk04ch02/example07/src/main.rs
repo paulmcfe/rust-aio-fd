@@ -6,7 +6,7 @@ fn add_journal_entry(entry: &str) -> std::io::Result<()> {
     let mut file = OpenOptions::new()
         .create(true) // Create if it doesn't exist
         .append(true) // Add to the end, don't overwrite
-        .open("src/journal.txt")?; // Open file with options
+        .open("journal.txt")?; // Open file with options
 
     writeln!(
         file,
