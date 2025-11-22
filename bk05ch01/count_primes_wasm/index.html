@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting primes</title>
+</head>
+
+<body>
+    <h1>Counting primes</h1>
+    <div id="output">Open the console to see the message</div>
+
+    <script type="module">
+        import init, { count_primes } from "./pkg/count_primes_wasm.js";
+
+        async function run() {
+            await init();
+            // Let Rust do the work and log to the console.
+            count_primes(1_000_000);
+        }
+
+        run();
+    </script>
+</body>
+
+</html>

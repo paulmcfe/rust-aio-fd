@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showing an alert</title>
+</head>
+
+<body>
+    <h1>Showing an Alert</h1>
+    <div id="output">The alert box comes from Rust!</div>
+
+    <script type="module">
+        import init, { show_warning } from "./pkg/alert_wasm.js";
+
+        async function run() {
+            await init();
+            show_warning(101);
+        }
+
+        run();
+    </script>
+</body>
+
+</html>

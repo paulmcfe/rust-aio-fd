@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello, WASM World!</title>
+</head>
+
+<body>
+    <h1>Rust WebAssembly Test Drive</h1>
+    <div id="output"></div>
+
+    <script type="module">
+        // Import what we need from the JS file
+        import init, { hello } from './pkg/hello_wasm.js';
+
+        // Run the Rust code
+        async function run() {
+            // Initialize WASM
+            await init();
+
+            // Run the Rust function
+            const message = hello("World");
+
+            // Output the returned string
+            document.getElementById('output').textContent = message;
+        }
+        // Go, WASM, go!
+        run();
+    </script>
+</body>
+
+</html>

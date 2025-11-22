@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust-Powered Password Analyzer</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 40rem;
+            margin: 2rem auto;
+            line-height: 1.5;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .strength {
+            margin-top: 0.75rem;
+            font-weight: bold;
+        }
+
+        pre {
+            background: #f5f5f5;
+            padding: 0.75rem;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rust-Powered Password Analyzer</h1>
+
+    <label for="pw">Enter a password:</label>
+    <input id="pw" type="password" autocomplete="off">
+
+    <div class="strength" id="strength-label">Type a password to see its score.</div>
+    <pre id="report"></pre>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
