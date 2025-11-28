@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get User Profile</title>
+</head>
+
+<body>
+    <h1>Get User Profile</h1>
+    <div id="output">Open the console to see the message</div>
+
+    <script type="module">
+        import init, { get_user_profile } from "./pkg/get_user_profile.js";
+
+        async function main() {
+            await init();
+
+            // Get the user profile as a JavaScript object
+            const profile = get_user_profile();
+
+            // Access the object's properties
+            console.log(profile.username);
+            console.log(profile.age);
+            console.log(profile.is_admin);
+        }
+        main()
+    </script>
+</body>
+
+</html>

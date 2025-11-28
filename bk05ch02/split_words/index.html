@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Words</title>
+</head>
+
+<body>
+    <h1>Split Words</h1>
+    <div id="output">Open the console to see the message</div>
+
+    <script type="module">
+        import init, { split_words } from "./pkg/split_words.js";
+
+        await init();
+
+        const words = split_words("Rust to JavaScript");
+        console.log(words);
+
+    </script>
+
+    This is a regular line of text.<br>
+    <script> document.write("Last modified: " + document.lastModified) </script>
+    <br>This is another line of regular text.
+</body>
+
+</html>

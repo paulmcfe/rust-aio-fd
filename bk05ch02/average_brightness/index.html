@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Average Brightness</title>
+</head>
+
+<body>
+    <h1>Average Brightness</h1>
+    <div id="output">Open the console to see the message</div>
+
+    <script type="module">
+        import init, { average_brightness } from "./pkg/average_brightness.js";
+
+        await init();
+
+        const pixels = new Uint8Array([0, 128, 255, 64, 192]);
+        console.log(`The average pixel brightness is ${average_brightness(pixels).toFixed(2)}`);
+
+    </script>
+</body>
+
+</html>

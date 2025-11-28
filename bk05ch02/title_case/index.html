@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert to Title Case</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 40rem;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            line-height: 1.5;
+        }
+
+        h1 {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        div {
+            border: 1px solid hsl(0 0% 50%);
+            padding: 0.5rem;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            min-height: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Convert to Title Case</h1>
+    <label for="input-text">Type some text and press Enter/Return:</label>
+    <input type="text" id="input-text" value="rust is AMAZING for text processing">
+    <label for="output-text">Here's your text title-cased by Rust:</label>
+    <div id="output-text">&nbsp;</div>
+
+    <script type="module">
+        import init, { title_case } from "./pkg/title_case.js";
+
+        const textInput = document.getElementById("input-text");
+        const textOutput = document.getElementById("output-text");
+
+        async function run() {
+            await init();
+
+            // Process initial value if present
+            if (textInput.value) {
+                const converted_text = title_case(textInput.value);
+                textOutput.textContent = converted_text;
+            }
+
+            // Otherwise, listen for Enter/Return
+            textInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    const text = textInput.value;
+                    const converted_text = title_case(text);
+                    textOutput.textContent = converted_text;
+                }
+            });
+
+        }
+
+        run();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Settings</title>
+</head>
+
+<body>
+    <h1>Apply Settings</h1>
+    <div id="output">Open the console to see the message</div>
+
+    <script type="module">
+        import init, { apply_settings } from "./pkg/apply_settings.js";
+        async function main() {
+            await init();
+
+            const settings = {
+                theme: "dark",
+                show_tips: true,
+                items_per_page: 20,
+            };
+
+            const result = apply_settings(settings);
+            console.log(result);
+        }
+
+        main();
+
+    </script>
+</body>
+
+</html>

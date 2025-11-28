@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Words</title>
+</head>
+
+<body>
+    <h1>Join Words</h1>
+    <div id="output">Open the console to see the message</div>
+
+    <script type="module">
+        import init, { join_words } from "./pkg/join_words.js";
+
+        await init();
+
+        const words = ["JavaScript", "to", "Rust"];
+        console.log(join_words(words, " "));
+
+    </script>
+</body>
+
+</html>
