@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Status from Rust</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(180deg, hsl(0 0% 50%) 0%, hsl(0 0 75%) 100%);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        div {
+            background: white;
+            padding: 20px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            margin: 10px;
+            font-size: 1.1em;
+        }
+
+        #status {
+            color: #667eea;
+            font-size: 1.3em;
+            min-width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Update Status from Rust</h1>
+    <div>Current status:</div>
+    <div id="status">Loading...</div>
+
+    <script type="module">
+        import init from "./pkg/update_status.js";
+        init();
+    </script>
+</body>
+
+</html>

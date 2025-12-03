@@ -1,0 +1,74 @@
+/* Page styles */
+body {
+    background-color: mintcream;
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Header styles */
+header {
+    background-color: coral;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 64px;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 16px;
+    margin: 0;
+}
+
+/* Main section styles */
+main {
+    text-align: center;
+    margin: 24px;
+}
+
+main>h2 {
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Portfolio container styles */
+.portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+/* Card styles */
+.card {
+    min-width: 200px;
+    max-width: 350px;
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.card img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+}
+
+.card h2,
+.card p {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/* Footer styles */
+footer {
+    background-color: coral;
+    padding: 16px;
+    text-align: center;
+}

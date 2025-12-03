@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cover Me Book Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img src="images/logo.png" alt="Cover Me Book Design Logo">
+        <h1>Cover Me Book Design</h1>
+    </header>
+
+    <main>
+        <h2 id="main-heading">Loading...</h2>
+        <div id="portfolio" class="portfolio">
+        </div>
+    </main>
+    <script type="module">
+        import init from './pkg/portfolio.js';
+        async function run() {
+            await init();
+        }
+        run();
+    </script>
+
+    <footer>
+        <p>&copy; Cover Me Book Design</p>
+    </footer>
+</body>
+
+</html>

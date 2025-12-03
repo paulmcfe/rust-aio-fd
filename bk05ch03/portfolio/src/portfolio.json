@@ -1,0 +1,40 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "image": "images/portfolio01.png",
+      "title": "I Fell In Love with ChatGPT",
+      "description": "I designed this book for Moughton-Hifflin's new line of AI-themed romance books."
+    },
+    {
+      "id": 2,
+      "image": "images/portfolio02.png",
+      "title": "The Shakespeare Time Machine",
+      "description": "Maggie O'Farrell meets H.G. Wells in this historical fiction book I designed for Juxtaposition Publishing."
+    },
+    {
+      "id": 3,
+      "image": "images/portfolio03.png",
+      "title": "Our New ChatBot Overlords",
+      "description": "A dystopian AI future awaits us all in this science fiction title I designed for H. J. Simpson Press."
+    },
+    {
+      "id": 4,
+      "image": "images/portfolio04.png",
+      "title": "Yo, Yossarian!",
+      "description": "A biography of the character John Yossarian from Joseph Heller's novel Catch-22; designed for Hyperbole Editions."
+    },
+    {
+      "id": 5,
+      "image": "images/portfolio05.png",
+      "title": "The Mystery of the Missing Sock",
+      "description": "A perennial mystery gets solved in this whodunit, which I designed for The Butler Did It Publications."
+    },
+    {
+      "id": 6,
+      "image": "images/portfolio06.png",
+      "title": "The Old Person's Guide to TikTok",
+      "description": "I designed the cover of this TikTok how-to guide for Old People Are People, Too Press."
+    }
+  ]
+}
