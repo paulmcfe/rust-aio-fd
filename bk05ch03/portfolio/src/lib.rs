@@ -13,54 +13,61 @@ struct Card {
     description: String,
 }
 
+// Get the JSON file contents
 const PORTFOLIO_JSON: &str = include_str!("portfolio.json");
 
+// Launch at intialization
 #[wasm_bindgen(start)]
-pub fn render_portfolio() {
-    let window = web_sys::window().expect("no global window exists");
-    let document = window.document().expect("should have document on window");
+pub fn render_portfolio() -> Result<(), JsValue> {
+
+    // Get access to the DOM
+    let window = web_sys::window()
+        .ok_or_else(|| JsValue::from_str("no global window exists"))?;
+    let document = window.document()
+        .ok_or_else(|| JsValue::from_str("should have document on window"))?;
 
     // Parse the JSON data
-    let data: PortfolioData =
-        serde_json::from_str(PORTFOLIO_JSON).expect("Failed to parse portfolio.json");
+    let data: PortfolioData = serde_json::from_str(PORTFOLIO_JSON)
+        .map_err(|e| JsValue::from_str(&format!("Failed to parse portfolio.json: {}", e)))?;
 
     // Get the portfolio container
     let portfolio = document
         .get_element_by_id("portfolio")
-        .expect("should have portfolio element");
+        .ok_or_else(|| JsValue::from_str("should have portfolio element"))?;
 
-    // Create cards from the data
+    // Create portfolio cards from the data
     for card in data.cards {
         // Create card div
-        let card_div = document.create_element("div").expect("should create div");
+        let card_div = document.create_element("div")?;
         card_div.set_class_name("card");
 
-        // Create image
-        let img = document.create_element("img").expect("should create img");
-        img.set_attribute("src", &card.image).unwrap();
-        img.set_attribute("alt", &format!("{} book cover", card.title))
-            .unwrap();
+        // Create card image
+        let img = document.create_element("img")?;
+        img.set_attribute("src", &card.image)?;
+        img.set_attribute("alt", &format!("{} book cover", card.title))?;
 
-        // Create heading
-        let h2 = document.create_element("h2").expect("should create h2");
+        // Create card heading
+        let h2 = document.create_element("h2")?;
         h2.set_text_content(Some(&card.title));
 
-        // Create paragraph
-        let p = document.create_element("p").expect("should create p");
+        // Create card paragraph
+        let p = document.create_element("p")?;
         p.set_text_content(Some(&card.description));
 
-        // Append elements to card
-        card_div.append_child(&img).unwrap();
-        card_div.append_child(&h2).unwrap();
-        card_div.append_child(&p).unwrap();
+        // Append the elements to the card
+        card_div.append_child(&img)?;
+        card_div.append_child(&h2)?;
+        card_div.append_child(&p)?;
 
-        // Append card to portfolio
-        portfolio.append_child(&card_div).unwrap();
+        // Append the card to the portfolio
+        portfolio.append_child(&card_div)?;
     }
 
     // Update the heading from "Loading..." to "My Latest Book Designs"
     let heading = document
         .get_element_by_id("main-heading")
-        .expect("should have main-heading element");
+        .ok_or_else(|| JsValue::from_str("should have main-heading element"))?;
     heading.set_text_content(Some("My Latest Book Designs"));
+
+    Ok(())
 }
