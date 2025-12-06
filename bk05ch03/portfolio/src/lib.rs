@@ -16,14 +16,13 @@ struct Card {
 // Get the JSON file contents
 const PORTFOLIO_JSON: &str = include_str!("portfolio.json");
 
-// Launch at intialization
+// Launch at initialization
 #[wasm_bindgen(start)]
 pub fn render_portfolio() -> Result<(), JsValue> {
-
     // Get access to the DOM
-    let window = web_sys::window()
-        .ok_or_else(|| JsValue::from_str("no global window exists"))?;
-    let document = window.document()
+    let window = web_sys::window().ok_or_else(|| JsValue::from_str("no global window exists"))?;
+    let document = window
+        .document()
         .ok_or_else(|| JsValue::from_str("should have document on window"))?;
 
     // Parse the JSON data

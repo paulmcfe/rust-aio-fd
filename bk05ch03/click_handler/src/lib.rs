@@ -1,39 +1,34 @@
 use wasm_bindgen::prelude::*;
-use web_sys::console;
+use web_sys::{Element, console};
 
+// Run this function upon initialization
 #[wasm_bindgen(start)]
 pub fn run() -> Result<(), JsValue> {
-    let window = web_sys::window().expect("no global window");
-    let document = window.document().expect("no document");
-    
+    // Get access to the DOM
+    let window = web_sys::window().ok_or("no global window")?;
+    let document = window.document().ok_or("no document")?;
+
     // Get the button element
-    let button = document.get_element_by_id(button_id)
-        .expect("button not found");
+    let button = document
+        .get_element_by_id("click-me")
+        .ok_or("button not found")?;
 
-    // Set up a listner on the button
-    setup_click_listener(button);
+    // Set up a listener on the button
+    set_up_click_listener(&button)?;
 
+    Ok(())
 }
 
-pub fn setup_click_listener(button_id: &str) -> Result<(), JsValue> {
-
-    // --- The Tricky Part ---
-    // We wrap our Rust code in a Closure.
-    // The `Box::new` puts it on the heap so it has a stable address.
+pub fn set_up_click_listener(button: &Element) -> Result<(), JsValue> {
+    // 1. Wrap the Rust event handler code in a Closure
     let handler = Closure::wrap(Box::new(move || {
         console::log_1(&"Button was clicked!".into());
     }) as Box<dyn FnMut()>);
 
-    // Attach the event listener.
-    // We have to convert our safe Closure into a generic Javascript reference.
-    button.add_event_listener_with_callback(
-        "click", 
-        handler.as_ref().unchecked_ref()
-    )?;
+    // 2. Attach the event listener
+    button.add_event_listener_with_callback("click", handler.as_ref().unchecked_ref())?;
 
-    // IMPORTANT: We must tell Rust to *forget* about this memory.
-    // If we don't, Rust will drop the `handler` at the end of this function,
-    // and the click listener will stop working (or crash) instantly.
+    // 3. Tell Rust to forget about this memory
     handler.forget();
 
     Ok(())

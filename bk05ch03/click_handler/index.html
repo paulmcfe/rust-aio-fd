@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handling Clicks from Rust</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+        }
+
+        .btn {
+            background-color: hsl(100, 61%, 19%);
+            background-image: linear-gradient(to bottom, hsl(100, 61%, 39%) 0%, hsl(100, 61%, 19%) 100%);
+            border-color: hsl(0, 0%, 0%);
+            border-radius: 10px;
+            border-style: solid;
+            border-width: 0px;
+            color: hsl(0, 0%, 100%);
+            font-size: 1.25rem;
+            letter-spacing: 1.5px;
+            margin-top: 1rem;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 7px;
+        }
+
+        .btn:hover {
+            background-color: hsl(100, 61%, 19%);
+            background-image: linear-gradient(to bottom, hsl(100, 61%, 19%) 0%, hsl(100, 61%, 39%) 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Handling Clicks from Rust</h1>
+    <div id="output">Open the console to see the messages.</div>
+    <button id="click-me" class="btn">Click Me!</button>
+
+    <script type="module">
+        import init from "./pkg/click_handler.js";
+        init();
+    </script>
+</body>
+
+</html>

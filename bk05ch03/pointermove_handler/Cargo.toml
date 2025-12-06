@@ -1,5 +1,5 @@
 [package]
-name = "click_handler"
+name = "pointermove_handler"
 version = "0.1.0"
 edition = "2024"
 
@@ -8,4 +8,4 @@ crate-type = ["cdylib"]
 
 [dependencies]
 wasm-bindgen = "0.2.106"
-web-sys = { version = "0.3.83", features = ["Window", "Document", "Element", "console"] }
+web-sys = { version = "0.3.83", features = ["Window", "PointerEvent", "console"] }

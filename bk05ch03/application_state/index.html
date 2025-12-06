@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application State</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            color: #eee;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        #display {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 1rem;
+        }
+
+        button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #increment_btn {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+
+        #step_btn {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Application State</h1>
+
+    <div id="display">Count: 0 (step = 1)</div>
+
+    <div class="button-container">
+        <button id="increment_btn">➕ Increment</button>
+        <button id="step_btn">⬆️ Increase Step</button>
+    </div>
+
+    <script type="module">
+        import init from "./pkg/application_state.js";
+        await init();
+    </script>
+</body>
+
+</html>

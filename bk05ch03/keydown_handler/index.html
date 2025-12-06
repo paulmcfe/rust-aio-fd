@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handling keyboard events</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Handling keyboard events</h1>
+    <div id="output">Open the console to see the messages that appear as you press the following keys:</div>
+    <ul>
+        <li><b>Move up</b>: Press &#x2191;, <kbd>w</kbd>, or <kbd>W</kbd></li>
+        <li><b>Move down</b>: Press &#x2193;, <kbd>s</kbd>, or <kbd>S</kbd></li>
+        <li><b>Move left</b>: Press &#x2190;, <kbd>a</kbd>, or <kbd>A</kbd></li>
+        <li><b>Move right</b>: Press &#x2192;, <kbd>d</kbd>, or <kbd>D</kbd></li>
+        <li><b>Fire</b>: Press <kbd>Spacebar</kbd></li>
+    </ul>
+
+    <script type="module">
+        import init from "./pkg/keydown_handler.js";
+        init();
+    </script>
+</body>
+
+</html>
