@@ -1,0 +1,135 @@
+[
+    {
+        "title": "The C Programming Language",
+        "author": "Brian W. Kernighan, Dennis M. Ritchie",
+        "year": 1978,
+        "category": "C Programming",
+        "isbn": "978-0131103627"
+    },
+    {
+        "title": "Introduction to Algorithms",
+        "author": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+        "year": 1990,
+        "category": "Algorithms",
+        "isbn": "978-0262033848"
+    },
+    {
+        "title": "Design Patterns: Elements of Reusable Object-Oriented Software",
+        "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+        "year": 1994,
+        "category": "Software Engineering",
+        "isbn": "978-0201633610"
+    },
+    {
+        "title": "The Pragmatic Programmer",
+        "author": "Andrew Hunt, David Thomas",
+        "year": 1999,
+        "category": "Software Engineering",
+        "isbn": "978-0135957059"
+    },
+    {
+        "title": "Code Complete",
+        "author": "Steve McConnell",
+        "year": 1993,
+        "category": "Software Engineering",
+        "isbn": "978-0735619678"
+    },
+    {
+        "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+        "author": "Robert C. Martin",
+        "year": 2008,
+        "category": "Software Engineering",
+        "isbn": "978-0132350884"
+    },
+    {
+        "title": "Structure and Interpretation of Computer Programs",
+        "author": "Harold Abelson, Gerald Jay Sussman",
+        "year": 1985,
+        "category": "Software Engineering",
+        "isbn": "978-0262510871"
+    },
+    {
+        "title": "Effective Java",
+        "author": "Joshua Bloch",
+        "year": 2001,
+        "category": "Java Programming",
+        "isbn": "978-0134685991"
+    },
+    {
+        "title": "The Art of Computer Programming, Volume 1",
+        "author": "Donald E. Knuth",
+        "year": 1968,
+        "category": "Algorithms",
+        "isbn": "978-0201896831"
+    },
+    {
+        "title": "Refactoring: Improving the Design of Existing Code",
+        "author": "Martin Fowler",
+        "year": 1999,
+        "category": "Software Engineering",
+        "isbn": "978-0134757599"
+    },
+    {
+        "title": "Head First Design Patterns",
+        "author": "Eric Freeman, Elisabeth Robson",
+        "year": 2004,
+        "category": "Software Engineering",
+        "isbn": "978-0596007126"
+    },
+    {
+        "title": "Python Crash Course",
+        "author": "Eric Matthes",
+        "year": 2015,
+        "category": "Python Programming",
+        "isbn": "978-1593279288"
+    },
+    {
+        "title": "Eloquent JavaScript",
+        "author": "Marijn Haverbeke",
+        "year": 2011,
+        "category": "JavaScript Programming",
+        "isbn": "978-1593279509"
+    },
+    {
+        "title": "Learning Python",
+        "author": "Mark Lutz",
+        "year": 1999,
+        "category": "Python Programming",
+        "isbn": "978-1449355739"
+    },
+    {
+        "title": "JavaScript: The Good Parts",
+        "author": "Douglas Crockford",
+        "year": 2008,
+        "category": "JavaScript Programming",
+        "isbn": "978-0596517748"
+    },
+    {
+        "title": "Programming Pearls",
+        "author": "Jon Bentley",
+        "year": 1986,
+        "category": "Software Engineering",
+        "isbn": "978-0201657883"
+    },
+    {
+        "title": "The Rust Programming Language",
+        "author": "Steve Klabnik, Carol Nichols",
+        "year": 2023,
+        "category": "Rust Programming",
+        "isbn": "978-1718503106"
+    },
+    {
+        "title": "Programming Rust",
+        "author": "Jim Blandy, Jason Orendorff, Leonora F. S. Tindall",
+        "year": 2021,
+        "category": "Rust Programming",
+        "isbn": "978-1492052593"
+    },
+    {
+        "title": "Rust in Action",
+        "author": "Tim McNamara",
+        "year": 2021,
+        "category": "Rust Programming",
+        "isbn": "978-1617294556"
+    }
+]
