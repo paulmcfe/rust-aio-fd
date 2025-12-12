@@ -2,12 +2,14 @@ mod models;
 mod handlers;
 
 use axum::{Router, routing::{get, post, put, delete}};
-use models::BookStore;
-use std::sync::{Arc, Mutex};
+use sqlx::SqlitePool;
 
 #[tokio::main]
 async fn main() {
-    let book_store: BookStore = Arc::new(Mutex::new(Vec::new()));
+    let database_url = "sqlite:books.db";
+    let pool = SqlitePool::connect(database_url)
+        .await
+        .expect("Failed to connect to database");
 
     let app = Router::new()
         .route("/books", get(handlers::list_books))
@@ -15,7 +17,7 @@ async fn main() {
         .route("/books/{id}", get(handlers::get_book))
         .route("/books/{id}", put(handlers::update_book))
         .route("/books/{id}", delete(handlers::delete_book))
-        .with_state(book_store);
+        .with_state(pool);
 
     let listener = tokio::net::TcpListener::bind("127.0.0.1:3001")
         .await
