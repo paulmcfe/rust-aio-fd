@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Home - LinkLocker{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h2>Never Lose a Link Again</h2>
+    <p>LinkLocker helps you organize all your favorite URLs in one place.</p>
+    <p>Save bookmarks with titles, descriptions, and tags. Search and filter
+       to find exactly what you're looking for.</p>
+    {% if username %}
+        <a href="/bookmarks" class="button primary">View My Bookmarks</a>
+    {% else %}
+        <a href="/register" class="button primary">Get Started</a>
+        <a href="/login" class="button">Log In</a>
+    {% endif %}
+</div>
+{% endblock %}

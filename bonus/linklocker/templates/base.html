@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LinkLocker{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1><a href="/">LinkLocker</a></h1>
+        <nav>
+            <a href="/">Home</a>
+            {% if username %}
+                <a href="/bookmarks">My Bookmarks</a>
+                <a href="/bookmarks/new">Add Bookmark</a>
+                <span class="user-info">Welcome, {{ username }}!</span>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2026 LinkLocker - Your Personal Bookmark Manager</p>
+    </footer>
+</body>
+</html>
