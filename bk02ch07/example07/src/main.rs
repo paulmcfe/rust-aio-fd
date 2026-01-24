@@ -1,7 +1,7 @@
 use rand::Rng;
 
 fn main() {
-    // Create a random number generator
+    // Create a random-number generator
     let mut rng = rand::rng();
 
     // Roll a six-sided die
