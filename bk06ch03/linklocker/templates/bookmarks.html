@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}My Bookmarks - LinkLocker{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>My Bookmarks</h2>
+    <a href="/bookmarks/new" class="button primary">Add Bookmark</a>
+</div>
+
+{% if bookmarks.is_empty() %}
+<div class="empty-state">
+    <h3>No bookmarks yet!</h3>
+    <p>Start building your collection by adding your first bookmark.</p>
+    <a href="/bookmarks/new" class="button primary">Add Your First Bookmark</a>
+</div>
+{% else %}
+<div class="bookmarks-list">
+    {% for bookmark in bookmarks %}
+    <div class="bookmark">
+        <h3><a href="{{ bookmark.url }}" target="_blank">{{ bookmark.title }}</a></h3>
+        <p class="bookmark-url">{{ bookmark.url }}</p>
+
+        {% if let Some(desc) = bookmark.description %}
+        <p class="bookmark-description">{{ desc }}</p>
+        {% endif %}
+
+        {% if let Some(tags) = bookmark.tags %}
+        <div class="bookmark-tags">
+            {% for tag in tags.split(",") %}
+            <span class="tag">{{ tag.trim() }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="bookmark-actions">
+            <a href="/bookmarks/{{ bookmark.id }}/edit" class="button">Edit</a>
+            <form method="post" action="/bookmarks/{{ bookmark.id }}/delete"
+                  class="inline-form">
+                <button type="submit" class="button danger"
+                        onclick="return confirm('Are you sure you want to delete this bookmark?')">
+                    Delete
+                </button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

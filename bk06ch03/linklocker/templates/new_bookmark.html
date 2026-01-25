@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Add Bookmark - LinkLocker{% endblock %}
+
+{% block content %}
+<h2>Add New Bookmark</h2>
+
+{% if let Some(err) = error %}
+<div class="error">{{ err }}</div>
+{% endif %}
+
+<form method="post">
+    <label for="url">URL *</label>
+    <input type="url" id="url" name="url" required
+           placeholder="https://example.com"
+           value="{% if let Some(u) = url %}{{ u }}{% endif %}">
+
+    <label for="title">Title *</label>
+    <input type="text" id="title" name="title" required
+           placeholder="Example Website"
+           value="{% if let Some(t) = title %}{{ t }}{% endif %}">
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description"
+              placeholder="Optional description...">{% if let Some(d) = description %}{{ d }}{% endif %}</textarea>
+
+    <label for="tags">Tags</label>
+    <input type="text" id="tags" name="tags"
+           placeholder="rust, web, tutorial (comma-separated)"
+           value="{% if let Some(t) = tags %}{{ t }}{% endif %}">
+
+    <button type="submit" class="button primary">Save Bookmark</button>
+    <a href="/bookmarks" class="button">Cancel</a>
+</form>
+{% endblock %}

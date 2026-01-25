@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}LinkLocker{% endblock %}</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
     <header>
         <h1><a href="/">LinkLocker</a></h1>
         <nav>
             <a href="/">Home</a>
-            {% if username %}
+            {% if let Some(user) = username %}
                 <a href="/bookmarks">My Bookmarks</a>
                 <a href="/bookmarks/new">Add Bookmark</a>
-                <span class="user-info">Welcome, {{ username }}!</span>
-                <a href="/logout">Logout</a>
+                <span class="user-info">Welcome, {{ user }}!</span>
+                <form method="post" action="/logout" class="logout-form">
+                    <button type="submit" class="link-button">Logout</button>
+                </form>
             {% else %}
                 <a href="/login">Login</a>
                 <a href="/register">Register</a>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Bookmark - LinkLocker{% endblock %}
+
+{% block content %}
+<h2>Edit Bookmark</h2>
+
+{% if let Some(err) = error %}
+<div class="error">{{ err }}</div>
+{% endif %}
+
+<form method="post">
+    <label for="url">URL *</label>
+    <input type="url" id="url" name="url" required
+           value="{{ url }}">
+
+    <label for="title">Title *</label>
+    <input type="text" id="title" name="title" required
+           value="{{ title }}">
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description">{% if let Some(d) = description %}{{ d }}{% endif %}</textarea>
+
+    <label for="tags">Tags</label>
+    <input type="text" id="tags" name="tags"
+           value="{% if let Some(t) = tags %}{{ t }}{% endif %}">
+
+    <button type="submit" class="button primary">Save Changes</button>
+    <a href="/bookmarks" class="button">Cancel</a>
+</form>
+{% endblock %}

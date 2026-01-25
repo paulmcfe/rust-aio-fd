@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Register - LinkLocker{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Create Your Account</h2>
+    <p>Start organizing your bookmarks today!</p>
+
+    {% if let Some(err) = error %}
+    <div class="error">{{ err }}</div>
+    {% endif %}
+
+    <form method="post">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required
+               value="{% if let Some(u) = username_prefill %}{{ u }}{% endif %}">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" class="button primary">Create Account</button>
+    </form>
+
+    <p class="auth-footer">
+        Already have an account? <a href="/login">Login here</a>
+    </p>
+</div>
+{% endblock %}
