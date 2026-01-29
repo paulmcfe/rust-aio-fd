@@ -45,11 +45,11 @@ fn main() {
     let config = Config::parse(&config_string);
 
     // Get the API key
-    let api_key = config.get_value("API_KEY").unwrap_or("no found");
+    let api_key = config.get_value("API_KEY").unwrap_or("not found");
     println!("API Key: {api_key}");
 
     // Get the port
-    let port = config.get_value("PORT").unwrap_or("no found");
+    let port = config.get_value("PORT").unwrap_or("not found");
     println!("Port: {port}");
 
     // Debug print everything

@@ -38,6 +38,9 @@ fn main() {
         .filter(|e| e.path().is_file())
         .collect();
 
+    // Track the number of files actually moved
+    let mut moved_count = 0;
+
     // Iterate through the entries
     for entry in &entries_to_process {
         // Get the path
@@ -61,6 +64,7 @@ fn main() {
                 // Move the file
                 if fs::rename(&path, &new_file_path).is_ok() {
                     println!("Moved: {} -> {}", path.display(), new_file_path.display());
+                    moved_count += 1;
                 } else {
                     println!("Failed to move: {}", path.display());
                 }
@@ -70,6 +74,6 @@ fn main() {
 
     println!(
         "Organization complete! {} files moved.",
-        entries_to_process.len()
+        moved_count
     );
 }

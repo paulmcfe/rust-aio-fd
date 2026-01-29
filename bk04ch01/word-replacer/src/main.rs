@@ -69,12 +69,12 @@ fn main() -> io::Result<()> {
     // Check if file exists and is actually a file
     if !filepath.exists() {
         eprintln!("Error: {:?} does not exist.", filepath);
-        return Ok(());
+        std::process::exit(1);
     }
 
     if !filepath.is_file() {
         eprintln!("Error: {:?} is not a file.", filepath);
-        return Ok(());
+        std::process::exit(1);
     }
 
     // Attempt the replacement
