@@ -1,28 +1,25 @@
-use axum::{
-    extract::{Query},
-    response::Html,
-};
-
-use std::fs;
+use axum::{extract::Query, response::Html};
 use serde::Deserialize;
+use tokio::fs;
 
-fn load_page(filename: &str) -> Html<String> {
+async fn load_page(filename: &str) -> Html<String> {
     let path = format!("pages/{}", filename);
     let html = fs::read_to_string(&path)
+        .await
         .unwrap_or_else(|_| format!("<h1>Error loading {}</h1>", filename));
     Html(html)
 }
 
 pub async fn homepage() -> Html<String> {
-    load_page("index.html")
+    load_page("index.html").await
 }
 
 pub async fn about_page() -> Html<String> {
-    load_page("about.html")
+    load_page("about.html").await
 }
 
 pub async fn contact_page() -> Html<String> {
-    load_page("contact.html")
+    load_page("contact.html").await
 }
 
 #[derive(Deserialize)]
@@ -37,7 +34,8 @@ fn default_page() -> u32 {
 }
 
 pub async fn search(Query(params): Query<SearchParams>) -> Html<String> {
-    let html = format!(r#"
+    let html = format!(
+        r#"
         <!DOCTYPE html>
         <html>
         <head>
@@ -57,7 +55,9 @@ pub async fn search(Query(params): Query<SearchParams>) -> Html<String> {
             <script src="/static/js/script.js"></script>
         </body>
         </html>
-    "#, params.q, params.page);
-    
+    "#,
+        params.q, params.page
+    );
+
     Html(html)
 }
